@@ -2,7 +2,10 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable("products", (table) => {
       table.increments();
-      table.string("category")
+      table.integer("category_id")
+            .references("id")
+            .inTable('categories')
+            .onDelete('CASCADE')
       table.string("name");
       table.text("img");
       table.integer("price");
