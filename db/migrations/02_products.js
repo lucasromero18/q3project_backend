@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
       table.text("img");
       table.integer("price");
       table.text("description");
+      table.integer("rating");
       table.timestamps(true, true)
   })
 };
