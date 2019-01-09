@@ -1,31 +1,30 @@
-const categories = require("../controllers/home_page.js")
-const singleCategory = require("../controllers/category.js")
-const product = require("../controllers/single_product.js")
-const cart = require("../controllers/single_cart.js")
+const categories = require("../controllers/category")
+const product = require("../controllers/product")
 
 
 
 module.exports = function(app){
 
 
-//ALL CATEGORIES
-app.get('/', categories.display)
+//CATEGORIES
+app.get('/categories', categories.getAllCategories);
+app.get('/categories/:id', categories.getOneCategory);
+app.post('/categories', categories.addOneCategory);
+app.patch('/categories/:id', categories.updateOneCategory);
+app.delete('/categories/:id', categories.deleteOneCategory);
 
-
-
-//SINGLE CATEGORY
-app.get('/single_category/:id', singleCategory.display)
 
 
 
 
 //PRODUCT
-app.get('product/:id', product.display)
+app.get('/products', product.getAllProducts);
+app.get('/products', product.getProductsByCategory);
+app.get('/products/:id', product.getOneProduct);
+app.post('/products', product.addOneProduct);
+app.patch('/products/:id', product.updateOneProduct);
+app.delete('/products/:id', product.deleteOneProduct);
 
-
-
-
-//CART
 
 
 
