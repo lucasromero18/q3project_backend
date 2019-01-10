@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
       table.integer("price");
       table.text("description");
       table.integer("rating");
+      table.text("stats");
       table.timestamps(true, true)
   })
 };
